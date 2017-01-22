@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: linh_discovery
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Gia Linh
+Implementation-Vendor-Id: spring.demo
+Build-Jdk: 1.8.0_25
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

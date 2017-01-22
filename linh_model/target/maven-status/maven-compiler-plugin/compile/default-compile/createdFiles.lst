@@ -1,0 +1,5 @@
+spring\demo\linh_model\ModelMeta.class
+spring\demo\linh_model\FieldString.class
+spring\demo\linh_model\converter\FieldStringConverter.class
+spring\demo\linh_model\MetaData.class
+spring\demo\linh_model\UserModel.class
