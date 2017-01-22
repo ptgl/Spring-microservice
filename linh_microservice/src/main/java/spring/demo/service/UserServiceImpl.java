@@ -49,8 +49,8 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public UserModel initModel() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return new UserModel();
 	}
 	
 

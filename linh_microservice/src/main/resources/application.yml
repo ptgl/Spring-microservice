@@ -31,9 +31,9 @@ spring:
         persistence:
           schema-generation:
             create-source: metadata
-            scripts:
-              action: create
-              create-target: #ipos_contacts.sql
+            #scripts:
+              #action: create
+              #create-target: ipos_contacts.sql
               
            
 hibernate:

@@ -33,7 +33,6 @@ public class UserController {
 	public @ResponseBody ResponseEntity<?> save(@RequestBody UserModel user)
 	{
 		
-		
 		// Save User
 		return userService.insertUser(user);
 	}
