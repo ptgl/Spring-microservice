@@ -8,7 +8,4 @@ import spring.demo.linh_model.UserModel;
 
 @RepositoryRestResource(collectionResourceRel = "users", path = "users")
 public interface UserModelRepository extends PagingAndSortingRepository<UserModel, Long>{
-	
-	
-
 }
