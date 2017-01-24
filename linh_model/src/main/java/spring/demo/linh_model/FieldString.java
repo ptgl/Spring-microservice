@@ -9,22 +9,21 @@ public class FieldString {
 
 	private ModelMeta meta;
 
-	public String getValue() {
-		return value;
-	}
-
-	public void setValue(String value) {
-		this.value = value;
-	}
-
-	public ModelMeta getMeta() {
-		return meta;
-	}
-
-	public void setMeta(ModelMeta meta) {
-		this.meta = meta;
-	}
-
+//	public String getValue() {
+//		return value;
+//	}
+//
+//	public void setValue(String value) {
+//		this.value = value;
+//	}
+//
+//	public ModelMeta getMeta() {
+//		return meta;
+//	}
+//
+//	public void setMeta(ModelMeta meta) {
+//		this.meta = meta;
+//	}
 	
 	
 	

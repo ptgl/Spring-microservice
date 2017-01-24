@@ -1,10 +1,12 @@
 package spring.demo.linh_model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import lombok.Data;
 import spring.demo.linh_model.converter.FieldStringConverter;
@@ -20,7 +22,7 @@ public class UserModel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 	
-	
+	@OneToOne(cascade = { CascadeType.ALL })
 	private MetaData metaData;
 	
 	@Convert(converter = FieldStringConverter.class)
