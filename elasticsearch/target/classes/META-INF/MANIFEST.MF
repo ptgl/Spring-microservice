@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: elasticsearch
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: lphan21
+Implementation-Vendor-Id: spring.demo
+Build-Jdk: 1.8.0_111
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
