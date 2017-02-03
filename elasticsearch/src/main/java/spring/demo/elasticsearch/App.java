@@ -17,6 +17,8 @@ import org.springframework.context.annotation.Configuration;
  * Hello world!
  *
  */
+
+//@EnableEurekaClient
 @Configuration
 @ComponentScan(basePackages = "spring.demo.elasticsearch")
 @EnableAutoConfiguration(exclude = {ElasticsearchConfiguration.class})

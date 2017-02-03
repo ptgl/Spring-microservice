@@ -1,5 +1,8 @@
 package spring.demo.elasticsearch;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 
@@ -11,15 +14,18 @@ import lombok.Data;
 public class Person {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String id;
 
-	private String firstname;
-	private String lastname;
+	private String firstName;
+	private String lastName;
 
-	public Person(String id, String f, String l) {
-		this.id = id;
-		firstname = f;
-		lastname = l;
+	public Person(){}
+	
+	public Person(String f, String l) {
+	
+		firstName = f;
+		lastName = l;
 
 	}
 
