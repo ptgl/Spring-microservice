@@ -40,15 +40,16 @@ public class ElasticsearchConfiguration {
 		String host = environment.getProperty("elasticsearch.host");
     	int port = Integer.parseInt(environment.getProperty("elasticsearch.port"));
     	String cluster = environment.getProperty("cluster.name");
-    	
-    	Settings settings = ImmutableSettings.settingsBuilder()
+   
+    	Settings settings = Settings.settingsBuilder()
     	        .put("cluster.name", cluster)
     	        .build();
-//    	Client client = TransportClient.builder().settings(settings).build()
-//    			 .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName(host), port));
-    	TransportClient client = new PreBuiltTransportClient(settings)
+    	Client client = TransportClient.builder().settings(settings).build()
+    			 .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName(host), port));
+    	//TransportClient 
+    	/*Client client = new PreBuiltTransportClient(settings)
     			.addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName(host), port));;
-    	
+    	*/
     	/*Settings settings = ImmutableSettings.builder()
     	        .put("cluster.name", "myClusterName").build();
     	TransportClient client = new PreBuiltTransportClient(settings);
