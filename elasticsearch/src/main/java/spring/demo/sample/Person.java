@@ -1,4 +1,4 @@
-package spring.demo.elasticsearch;
+package spring.demo.sample;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

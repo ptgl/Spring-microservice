@@ -1,4 +1,4 @@
-package spring.demo.elasticsearch;
+package spring.demo.config;
 
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;

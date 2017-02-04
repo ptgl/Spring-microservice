@@ -1,4 +1,4 @@
-package spring.demo.elasticsearch;
+package spring.demo.sample;
 
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 

@@ -6,6 +6,8 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+import spring.demo.config.ElasticsearchConfiguration;
+
 
 
 
@@ -20,7 +22,7 @@ import org.springframework.context.annotation.Configuration;
 
 //@EnableEurekaClient
 @Configuration
-@ComponentScan(basePackages = "spring.demo.elasticsearch")
+@ComponentScan(basePackages = "spring.demo")
 @EnableAutoConfiguration(exclude = {ElasticsearchConfiguration.class})
 public class App 
 {

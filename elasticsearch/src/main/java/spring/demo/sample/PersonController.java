@@ -1,4 +1,4 @@
-package spring.demo.elasticsearch;
+package spring.demo.sample;
 
 import java.util.List;
 
@@ -8,9 +8,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+
+
+
 
 @Controller
 public class PersonController {
@@ -22,7 +28,7 @@ public class PersonController {
 	PersonRepository repository;
 
 	@RequestMapping(method = RequestMethod.GET, value = "/person")
-	public @ResponseBody ResponseEntity<?> getModels() throws Exception {
+	public @ResponseBody ResponseEntity<?> init() throws Exception {
 
 		repository.deleteAll();
 
@@ -30,12 +36,33 @@ public class PersonController {
 		p.setId("01");
 		service.save(p);
 		Person p1 = new Person("hoa", "nguyen");
-		p.setId("02");
+		p1.setId("02");
 		service.save(p1);
 
 		return new ResponseEntity(HttpStatus.OK);// ResponseEntity.ok(p);
 	}
 
+	
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/person/model")
+	public @ResponseBody ResponseEntity<?> getModels() throws Exception {
+			
+		Person user = new Person();
+		return ResponseEntity.ok(user);
+	}
+
+	
+	// Create a new Person
+		@RequestMapping(method = RequestMethod.POST, value = "/person/new")
+		public @ResponseBody ResponseEntity<?> save(@RequestBody Person user) {
+			Person u = service.save(user);
+
+			return new ResponseEntity<Person>(u, HttpStatus.CREATED);
+			
+		}
+	
+	
+	
 	// find by id
 	@RequestMapping(method = RequestMethod.GET, value = "/person/{ID}")
 	public @ResponseBody ResponseEntity<?> findbyID(@PathVariable(value = "ID") String id) {
@@ -50,12 +77,12 @@ public class PersonController {
 		return new ResponseEntity<Page<Person>>(p, HttpStatus.OK);
 	}
 	
-//	// find by name
-//		@RequestMapping(method = RequestMethod.GET, value = "/person/{name}")
-//		public @ResponseBody ResponseEntity<?> findbyID(@PathVariable(value = "name") String name) {
-//			Person p = repository.findByFirstName(name);
-//			System.out.println(p);
-//			return new ResponseEntity<Person>(p, HttpStatus.OK);
-//		}
+	// find by name
+		@RequestMapping(method = RequestMethod.GET, value = "/person/find")
+		public @ResponseBody ResponseEntity<?> findbyName(@RequestParam(value = "name") String name) {
+			Person p = repository.findByFirstName(name);
+			System.out.println(p);
+			return new ResponseEntity<Person>(p, HttpStatus.OK);
+		}
 
 }
