@@ -3,6 +3,7 @@ package spring.demo.elasticsearch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
@@ -20,7 +21,7 @@ import spring.demo.config.ElasticsearchConfiguration;
  *
  */
 
-//@EnableEurekaClient
+@EnableEurekaClient
 @Configuration
 @ComponentScan(basePackages = "spring.demo")
 @EnableAutoConfiguration(exclude = {ElasticsearchConfiguration.class})

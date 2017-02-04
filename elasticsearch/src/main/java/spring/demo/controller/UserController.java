@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import spring.demo.linh_model.*;
@@ -62,6 +63,8 @@ public class UserController {
 		UserModel p = repository.findOne(id);
 		return new ResponseEntity<UserModel>(p, HttpStatus.OK);
 	}
+	
+
 
 	// Find all
 	@RequestMapping(method = RequestMethod.GET, value = "/user")
@@ -94,5 +97,15 @@ public class UserController {
 
 		return new ResponseEntity(HttpStatus.OK);
 	}
+	
+	// Delete all
+		@RequestMapping(method = RequestMethod.DELETE, value = "/user/all")
+		public @ResponseBody ResponseEntity<?> deleteAll() {
+			
+			repository.deleteAll();
+
+			return new ResponseEntity(HttpStatus.OK);
+		}
+	
 
 }
