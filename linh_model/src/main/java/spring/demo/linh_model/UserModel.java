@@ -8,12 +8,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import org.springframework.data.elasticsearch.annotations.Document;
+
 import lombok.Data;
 import spring.demo.linh_model.converter.FieldStringConverter;
 import spring.demo.linh_model.FieldString;
 //import spring.demo.linh_model.MetaData;
 
-
+@Document(indexName = "resource", type = "user", shards = 1, replicas = 0)
 @Entity
 @Data
 public class UserModel {
