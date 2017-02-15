@@ -32,10 +32,10 @@ public class PersonController {
 
 		repository.deleteAll();
 
-		Person p = new Person("linh", "phan");
+		Person p = new Person("liem", "le");
 		p.setId("01");
 		service.save(p);
-		Person p1 = new Person("hoa", "nguyen");
+		Person p1 = new Person("tran", "le");
 		p1.setId("02");
 		service.save(p1);
 
@@ -80,9 +80,21 @@ public class PersonController {
 	// find by name
 		@RequestMapping(method = RequestMethod.GET, value = "/person/find")
 		public @ResponseBody ResponseEntity<?> findbyName(@RequestParam(value = "name") String name) {
-			Person p = repository.findByFirstName(name);
+			//Person p = repository.findByFirstName(name);
+			Person p = repository.findByName(name);
+
 			System.out.println(p);
 			return new ResponseEntity<Person>(p, HttpStatus.OK);
 		}
+		
+		
+		// Delete all
+				@RequestMapping(method = RequestMethod.DELETE, value = "/person/all")
+				public @ResponseBody ResponseEntity<?> deleteAll() {
+					
+					repository.deleteAll();
+
+					return new ResponseEntity(HttpStatus.OK);
+				}
 
 }

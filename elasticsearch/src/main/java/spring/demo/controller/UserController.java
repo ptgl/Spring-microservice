@@ -2,6 +2,7 @@ package spring.demo.controller;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import spring.demo.elasticsearch.App;
 import spring.demo.linh_model.*;
 
 import spring.demo.repository.UserRepository;
@@ -22,6 +24,9 @@ import spring.demo.repository.UserRepository;
 @Controller
 public class UserController {
 
+	 private static final Logger logger = Logger.getLogger(UserController.class);
+	
+	
 	@Autowired
 	private UserRepository repository;
 
@@ -42,7 +47,9 @@ public class UserController {
 		user.setMetaData(m);
 		user.setUserName(new FieldString());
 		user.setUserStatus(new FieldString());
-
+		
+		
+    	 logger.info("CREATED!");
 		
 		//UserModel user = userService.initModel();
 		return ResponseEntity.ok(user);
@@ -64,6 +71,15 @@ public class UserController {
 		return new ResponseEntity<UserModel>(p, HttpStatus.OK);
 	}
 	
+	/*// find by id
+		@RequestMapping(method = RequestMethod.GET, value = "/user/{ID}")
+		public @ResponseBody ResponseEntity<?> findbyID(@PathVariable(value = "ID") String id) {
+			UserModel p = repository.findOne(id);
+			return new ResponseEntity<UserModel>(p, HttpStatus.OK);
+		}*/
+		
+	
+	
 
 
 	// Find all
@@ -72,6 +88,19 @@ public class UserController {
 		Page<UserModel> p = (Page<UserModel>) repository.findAll();
 		return new ResponseEntity<Page<UserModel>>(p, HttpStatus.OK);
 	}
+	
+	
+	
+	// find by Document
+		@RequestMapping(method = RequestMethod.GET, value = "/motors/query")
+		public @ResponseBody ResponseEntity<?> findbyDocument(@RequestParam(value = "type") String value) {
+			List<UserModel> p = repository.findByMetaDataDocumentTitleValue(value);
+			return new ResponseEntity<List<UserModel>>(p, HttpStatus.OK);
+		}
+	
+	
+	
+	
 
 	// Update a user
 	@RequestMapping(method = RequestMethod.PUT, value = "/user/{ID}")
